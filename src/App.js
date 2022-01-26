@@ -1,23 +1,8 @@
-import logo from './logo.svg';
-import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <img src='https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.meme-arsenal.com%2Fen%2Fcreate%2Ftemplate%2F63644&psig=AOvVaw0TzAFpXNO51fRWEml3NOLw&ust=1643269962672000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCNDP0_H3zvUCFQAAAAAdAAAAABAK' />
     </div>
   );
 }

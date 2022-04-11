@@ -1,10 +1,43 @@
+import React, { useCallback, useState } from "react";
 
-function App() {
+const Div = ({ cb, children }) => {
   return (
-    <div className="App">
-      <img src='https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.meme-arsenal.com%2Fen%2Fcreate%2Ftemplate%2F63644&psig=AOvVaw0TzAFpXNO51fRWEml3NOLw&ust=1643269962672000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCNDP0_H3zvUCFQAAAAAdAAAAABAK' />
+    <div
+      style={{
+        marginTop: "33px",
+        padding: "15px",
+        background: '#eee'
+      }}
+    >
+      {children}
+      <button onClick={cb}>click</button>
     </div>
   );
-}
+};
 
-export default App;
+const MemoizedDiv = React.memo(Div);
+
+export const App = () => {
+  const [state, setState] = useState(1);
+  const someCallback = () => {
+    console.log("callback invoked");
+  };
+
+  const memoizedCallback = useCallback(() => {
+    console.log("callback invoked");
+  }, []);
+
+  return (
+    <main style={{ paddingBlock: '50px' }}>
+      <div>
+        this change state
+        <button onClick={() => setState(state + 1)}>change {state} + 1</button>
+      </div>
+
+      <Div cb={someCallback}>simple with default callback</Div>
+      <Div cb={memoizedCallback}>simple with useCallback</Div>
+      <MemoizedDiv cb={memoizedCallback}>memo with useCallback</MemoizedDiv>
+    </main>
+  );
+};
+  
